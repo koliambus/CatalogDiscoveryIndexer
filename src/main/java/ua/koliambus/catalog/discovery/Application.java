@@ -30,8 +30,6 @@ public class Application implements CommandLineRunner {
 
     private final AmazonSQS amazonSQS;
 
-    private final ApplicationContext applicationContext;
-
     private final RestHighLevelClient restHighLevelClient;
 
     private static final int PARALLEL_WORKER_THREADS = 10;
@@ -40,9 +38,8 @@ public class Application implements CommandLineRunner {
 
     private static final String QUEUE_NAME = "published_songs_queue";
 
-    public Application(AmazonSQS amazonSQS, ApplicationContext applicationContext, RestHighLevelClient restHighLevelClient) {
+    public Application(AmazonSQS amazonSQS, RestHighLevelClient restHighLevelClient) {
         this.amazonSQS = amazonSQS;
-        this.applicationContext = applicationContext;
         this.restHighLevelClient = restHighLevelClient;
     }
 
@@ -123,10 +120,10 @@ public class Application implements CommandLineRunner {
 
         try {
             executorService.submit(() -> {
-//                while (true) {
-//                    Thread.sleep(60);
+                while (true) {
+                    Thread.sleep(60);
                     consumeMessagesFromQueue(queueUrl);
-//                }
+                }
             }).get();
         } finally {
             System.out.println("Stopped reading messages");
