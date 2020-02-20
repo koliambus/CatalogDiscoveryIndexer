@@ -45,10 +45,10 @@ public class ApplicationConfig {
         return new RestHighLevelClient(
                 RestClient.builder(
                         new HttpHost(
-//                                "vpc-published-songs-bg7oat4af4hzyplw6ojinklkbu.us-east-2.es.amazonaws.com",
-                                "localhost",
-                                9200,
-                                "http"
+                                "vpc-published-songs-bg7oat4af4hzyplw6ojinklkbu.us-east-2.es.amazonaws.com",
+//                                "localhost",
+                                443,
+                                "https"
                         )
                 )
         );
