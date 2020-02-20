@@ -1,0 +1,21 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "text"
+      },
+      "author_id": {
+        "type": "text"
+      },
+      "release_date": {
+        "type": "date"
+      },
+      "duration_in_seconds": {
+        "type": "integer"
+      },
+      "artifact_uri": {
+        "type": "text"
+      }
+    }
+  }
+}
